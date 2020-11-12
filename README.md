@@ -11,6 +11,8 @@ The entry file of the application which uses the core function NestFactory to cr
 `app.controller.ts` : A basic controller with a single route.
 Controllers are responsible for handling incoming requests and returning responses to the client.
 
+`nest g co` : Generate a controller declaration.
+
 ### @Get
 
 Routes HTTP GET requests to the specified path.
@@ -46,6 +48,8 @@ Routes HTTP PUT requests to the specified path.
 ## Providers
 
 `app.service.ts` : A basic service with a single method.
+
+`nest g s` : Generate a service declaration.
 
 ## Modules
 
