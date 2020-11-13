@@ -67,6 +67,8 @@ A module is a class annotated with a `@Module()` decorator. The `@Module()` deco
 
 ### class-validator
 
+https://github.com/typestack/class-validator
+
 ### class-transformer
 
 ### @nestjs/mapped-types
