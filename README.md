@@ -6,6 +6,13 @@ Learning NestJS by making an enterprise ready API
 
 The entry file of the application which uses the core function NestFactory to create a Nest application instance.
 
+### Pipes
+
+Pipes have two typical use cases:
+
+- transformation: transform input data to the desired form (e.g., from string to integer)
+- validation: evaluate input data and if valid, simply pass it through unchanged; otherwise, throw an exception when the data is incorrect
+
 ## Controllers
 
 `app.controller.ts` : A basic controller with a single route.
@@ -55,3 +62,9 @@ Routes HTTP PUT requests to the specified path.
 
 `app.module.ts` : The root module of the application.
 A module is a class annotated with a `@Module()` decorator. The `@Module()` decorator provides metadata that Nest makes use of to organize the application structure.
+
+## Useful Packages
+
+### class-validator
+
+### class-transformer
