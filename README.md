@@ -68,3 +68,11 @@ A module is a class annotated with a `@Module()` decorator. The `@Module()` deco
 ### class-validator
 
 ### class-transformer
+
+### @nestjs/mapped-types
+
+Mapped Types module for Nest used by the @nestjs/graphql and @nestjs/swagger packages.
+
+## DTO
+
+A Data Transfer Object is an object that is used to encapsulate data, and send it from one part of your application to another. DTO’s help us define the input and output interfaces of our system.
