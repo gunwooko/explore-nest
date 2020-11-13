@@ -20,37 +20,47 @@ Controllers are responsible for handling incoming requests and returning respons
 
 `nest g co` : Generate a controller declaration.
 
-### @Get
+### @Get()
 
 Routes HTTP GET requests to the specified path.
 
-### @Param
+### @Param()
 
 Extracts the params property from the req object and populates the decorated parameter with the value of params.
 
-### @Post
+### @Post()
 
 Routes HTTP POST requests to the specified path.
 
-### @Body
+### @Body()
 
 Extracts the entire body object from the req object and populates the decorated parameter with the value of body.
 
-### @Query
+### @Query()
 
 Extracts the query property from the req object and populates the decorated parameter with the value of query. May also apply pipes to the bound query parameter.
 
-### @Delete
+### @Delete()
 
 Routes HTTP POST requests to the specified path.
 
-### @Patch
+### @Patch()
 
 Routes HTTP PATCH requests to the specified path.
 
-### @Put
+### @Put()
 
 Routes HTTP PUT requests to the specified path.
+
+### @Req()
+
+Access to Resquest object of ExpressJS
+But it's not good practice to directly use Express object
+
+### @Res()
+
+Access to Response object of ExpressJS
+But it's not good practice to directly use Express object
 
 ## Providers
 
@@ -80,3 +90,11 @@ Mapped Types module for Nest used by the @nestjs/graphql and @nestjs/swagger pac
 ## DTO
 
 A Data Transfer Object is an object that is used to encapsulate data, and send it from one part of your application to another. DTO’s help us define the input and output interfaces of our system.
+
+## Performance (Fastify)
+
+https://github.com/fastify/fastify
+
+By default, Nest makes use of the Express framework. As mentioned earlier, Nest also provides compatibility with other libraries such as, for example, Fastify.
+
+Fastify provides a good alternative framework for Nest because it solves design issues in a similar manner to Express. However, fastify is much faster than Express, achieving almost two times better benchmarks results. A fair question is why does Nest use Express as the default HTTP provider? The reason is that Express is widely-used, well-known, and has an enormous set of compatible middleware, which is available to Nest users out-of-the-box.
