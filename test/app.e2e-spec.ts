@@ -1,18 +1,26 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
-import { isRFC3339 } from 'class-validator';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
+    // We need to replicate same environment on Testing as the environment we have main.ts
+    // If we don't do this, transform doesn't work on Testing
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+        transform: true, // This is awesome!
+      }),
+    );
     await app.init();
   });
 
@@ -38,5 +46,16 @@ describe('AppController (e2e)', () => {
     it('DELETE', () => {
       return request(app.getHttpServer()).delete('/movies').expect(404);
     });
+  });
+
+  describe('/movies/:id', () => {
+    it('GET 200', () => {
+      return request(app.getHttpServer()).get('/movies/1').expect(200);
+    });
+    it('GET 404', () => {
+      return request(app.getHttpServer()).get('/movies/9999').expect(404);
+    });
+    it.todo('DELETE');
+    it.todo('PATCH');
   });
 });
